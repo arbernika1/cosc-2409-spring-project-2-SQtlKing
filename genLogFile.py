@@ -2,14 +2,14 @@ import re
 import random
 import datetime
 
+
 def generate_log_entry(ip_address, url, status_code):
-    """Generates a sample log entry."""
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     return f"{timestamp} - {ip_address} - \"GET {url} HTTP/1.1\" {status_code}\n"
 
+
 def generate_log_file(filename="access.log", num_entries=100):
-    """Generates a sample log file."""
-    ip_addresses = ["192.168.1." + str(i) for i in range(1, 25)]
+    ip_addresses = [f"192.168.1.{i}" for i in range(1, 25)]
     urls = ["/page1", "/page2", "/page3", "/images/logo.png", "/api/data"]
     status_codes = [200, 404, 500, 301]
 
@@ -21,7 +21,6 @@ def generate_log_file(filename="access.log", num_entries=100):
             f.write(generate_log_entry(ip, url, status))
 
 
-
-# Generate a sample log file (uncomment to create the file)
-generate_log_file()
-
+# Create sample log file
+if __name__ == "__main__":
+    generate_log_file()
